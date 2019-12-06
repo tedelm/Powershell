@@ -14,7 +14,7 @@ Setup:
 
 .NOTES
 Author
-Ted.elmenheim@iver.se
+Ted Elmenheim
 Created: 2019-12-06
 Edited: 
 2019-12-06 - Added support for certificate creation
