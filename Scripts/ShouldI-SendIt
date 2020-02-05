@@ -1,0 +1,57 @@
+
+function ShouldI-SendIt{
+    param (
+        [string]$Location,
+        [int]$Wind,
+        [int]$WindMax,
+        [int]$Rain,
+        [switch]$ShowAllDay    
+    )
+
+$Today = (Get-Date).ToString('yyyy-MM-dd')
+$iwr = iwr -Uri "https://www.klart.se/se/sk%C3%A5ne-l%C3%A4n/v%C3%A4der-$($location)/timmar/#$($Today)"
+$result = ($iwr.AllElements |?{$_.id -like "hour-*"}).outerText
+
+$Temp_now = (($result[0] -split " ")[3]).trim()
+$Temp_now_feel = (($result[0] -split " ")[4]).trim()
+$Temp_now_rain = (($result[0] -split " ")[5]).trim()
+$Temp_now_wind = (($result[0] -split " ")[7]).trim()
+$Temp_now_windMax = (($result[0] -split " ")[9]).trim()
+
+    If(!$Location){ $Location = "Lund"}
+    If(!$Wind){ $Wind = 10}
+    If(!$WindMax){ $WindMax = 12}
+    If(!$Rain){ $Rain = 2}
+
+    If($ShowAllDay){
+
+        $result = $result | select -First 10
+        Write-Host "Time,  Temp,  Feels_like,  Rain,  Wind"
+        foreach($res in $result){
+            
+            $Temp_now_hour = (($res -split " ")[0]).trim()
+            $Temp_now = (($res -split " ")[3]).trim()
+            $Temp_now_feel = (($res -split " ")[4]).trim()
+            $Temp_now_rain = (($res -split " ")[5]).trim()
+            $Temp_now_wind = (($res -split " ")[7]).trim()
+            $Temp_now_windMax = (($res -split " ")[9]).trim()
+            
+            Write-Host "$Temp_now_hour  $Temp_now     $Temp_now_feel           $Temp_now_rain      $Temp_now_wind $Temp_now_windMax"
+
+        }
+
+    }else {
+        
+        If( ([int]$Temp_now_rain -lt $Rain) -and ([int]$Temp_now_wind -lt $Wind) ){
+            Write-Host "Send IT!!" -ForegroundColor Blue -BackgroundColor Green
+            Write-Host "Just nu $Temp_now grader, känns som $Temp_now_feel, regn $Temp_now_rain mm"
+            Write-Host "Kommer blåsa $Temp_now_wind $Temp_now_windMax m/s"
+        }else {
+            Write-Host "No, dont Send IT!!" -ForegroundColor Black -BackgroundColor Red
+            Write-Host "Just nu $Temp_now grader, känns som $Temp_now_feel, regn $Temp_now_rain mm"
+            Write-Host "Kommer blåsa $Temp_now_wind $Temp_now_windMax m/s"         
+        }
+    }
+}
+
+ShouldI-SendIt -location "Lund" -ShowAllDay
