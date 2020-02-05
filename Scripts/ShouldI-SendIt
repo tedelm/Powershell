@@ -55,3 +55,4 @@ $Temp_now_windMax = (($result[0] -split " ")[9]).trim()
 }
 
 ShouldI-SendIt -location "Lund" -ShowAllDay
+ShouldI-SendIt -location "Lund" -Wind 7 -Rain 1
