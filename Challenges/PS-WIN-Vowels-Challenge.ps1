@@ -10,12 +10,16 @@ Vowels = a,e,i,o,u
 
 function Find-Vowels {
     param (
-        [string]$word
+        [string]$word,
+        [array]$vowels = @("a","e","i","o","u", "y", "å", "ä", "ö"),
+        [array]$consonants = @("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "z", "x")
     )
-    $vowels = @("a","e","i","o","u")
 
+    
+    
     $chararray = $($word.ToLower()).ToCharArray()
     $i = 0
+    $ii = 0
     $vowelsFound = @()
 
     foreach ($char in $chararray) {
@@ -25,7 +29,15 @@ function Find-Vowels {
             $i++
         }
     }
+    foreach ($char in $chararray) {
+
+        if($char -in $consonants){
+            $consonantsFound += $char
+            $ii++
+        }
+    }    
 
     Write-host "$i Vowel(s), these-> $vowelsFound"
+    Write-host "$ii Consonant(s), these-> $consonantsFound"
 }
 
