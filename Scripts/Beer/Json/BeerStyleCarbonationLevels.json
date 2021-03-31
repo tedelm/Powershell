@@ -1,0 +1,478 @@
+[
+    {
+      "Style": "American Amber",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.55,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "American Barleywine",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.15,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "American Brown Ale",
+      "Class": "Ale",
+      "Co2Low": 2,
+      "Co2Mid": 2.3,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "American IPA",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "American Pale Ale",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.55,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "American Stout",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.6,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Belgian Blond Ale",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.5,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Belgian Dark Strong Ale",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.6,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Belgian Dubbel",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.6,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Belgian Golden Strong Ale",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.6,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Belgian Pale Ale",
+      "Class": "Ale",
+      "Co2Low": 2.1,
+      "Co2Mid": 2.4,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Belgian Specialty Ale",
+      "Class": "Ale",
+      "Co2Low": 2.1,
+      "Co2Mid": 2.5,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Belgian Tripel",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.7,
+      "Co2High": 3
+    },
+    {
+      "Style": "Berliner Weiss",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.65,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Biere de Garde",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.6,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Blonde Ale",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.6,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Brown Porter",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.15,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "Dry Stout",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.15,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "Dunkelweizen",
+      "Class": "Ale",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.7,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Dusseldorf Altbier",
+      "Class": "Ale",
+      "Co2Low": 2.1,
+      "Co2Mid": 2.6,
+      "Co2High": 3.1
+    },
+    {
+      "Style": "English Barleywine",
+      "Class": "Ale",
+      "Co2Low": 1.6,
+      "Co2Mid": 2.05,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "English IPA",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Extra Special/Strong",
+      "Class": "Bitter",
+      "Co2Low": 1.5,
+      "Co2Mid": 1.95,
+      "Co2High": 2.4
+    },
+    {
+      "Style": "Flanders Brown",
+      "Class": "Ale/Oud Bruin Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.5,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Flanders Red Ale",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Foreign Extra Stout",
+      "Class": "Ale",
+      "Co2Low": 2,
+      "Co2Mid": 2.3,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "Fruit Lambic",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.75,
+      "Co2High": 3.1
+    },
+    {
+      "Style": "Gueuze",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.75,
+      "Co2High": 3.1
+    },
+    {
+      "Style": "Imperial IPA",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Imperial Stout",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.2,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "Irish Red Ale",
+      "Class": "Ale",
+      "Co2Low": 2.1,
+      "Co2Mid": 2.35,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "Kolsch",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.6,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Mild",
+      "Class": "Ale",
+      "Co2Low": 1.3,
+      "Co2Mid": 1.8,
+      "Co2High": 2.3
+    },
+    {
+      "Style": "Northern English Brown Ale",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Oatmeal Stout",
+      "Class": "Ale",
+      "Co2Low": 1.9,
+      "Co2Mid": 2.2,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "Old Ale",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.15,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "Robust Porter",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.15,
+      "Co2High": 2.5
+    },
+    {
+      "Style": "Roggenbier (German Rye Beer)",
+      "Class": "Ale",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.7,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Saison",
+      "Class": "Ale",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.6,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Scottish Export 80",
+      "Class": "Ale",
+      "Co2Low": 1.5,
+      "Co2Mid": 1.9,
+      "Co2High": 2.3
+    },
+    {
+      "Style": "Scottish Heavy 70",
+      "Class": "Ale",
+      "Co2Low": 1.5,
+      "Co2Mid": 1.9,
+      "Co2High": 2.3
+    },
+    {
+      "Style": "Scottish Light 60",
+      "Class": "Ale",
+      "Co2Low": 1.5,
+      "Co2Mid": 1.9,
+      "Co2High": 2.3
+    },
+    {
+      "Style": "Southern English Brown Ale",
+      "Class": "Ale",
+      "Co2Low": 1.3,
+      "Co2Mid": 1.8,
+      "Co2High": 2.3
+    },
+    {
+      "Style": "Special/Best/Premium Bitter",
+      "Class": "Ale",
+      "Co2Low": 0.8,
+      "Co2Mid": 1.45,
+      "Co2High": 2.1
+    },
+    {
+      "Style": "Standard/Ordinary Bitter",
+      "Class": "Ale",
+      "Co2Low": 0.8,
+      "Co2Mid": 1.5,
+      "Co2High": 2.2
+    },
+    {
+      "Style": "Straight (Unblended) Lambic",
+      "Class": "Ale",
+      "Co2Low": 1.8,
+      "Co2Mid": 2.2,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "Strong Scotch Ale",
+      "Class": "Ale",
+      "Co2Low": 1.6,
+      "Co2Mid": 2,
+      "Co2High": 2.4
+    },
+    {
+      "Style": "Sweet Stout",
+      "Class": "Ale",
+      "Co2Low": 2,
+      "Co2Mid": 2.2,
+      "Co2High": 2.4
+    },
+    {
+      "Style": "Weizen/Weissbier",
+      "Class": "Ale",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.7,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Weizenbock",
+      "Class": "Ale",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.65,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Bohemian Pilsner",
+      "Class": "Lager",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.45,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "Classic American Pilsner",
+      "Class": "Lager",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.6,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Classic Rauchbier",
+      "Class": "Lager",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.6,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Dark American Lager",
+      "Class": "Lager",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.7,
+      "Co2High": 2.9
+    },
+    {
+      "Style": "Doppelbock",
+      "Class": "Lager",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.45,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "Dortmunder Export",
+      "Class": "Lager",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.55,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Eisbock",
+      "Class": "Lager",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.4,
+      "Co2High": 2.6
+    },
+    {
+      "Style": "German Pilsner (Pils)",
+      "Class": "Lager",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.6,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Lite American Lager",
+      "Class": "Lager",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.65,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Mailbock/Helles Bock",
+      "Class": "Lager",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Munich Dunkel",
+      "Class": "Lager",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Munich Helles",
+      "Class": "Lager",
+      "Co2Low": 2.3,
+      "Co2Mid": 2.5,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Oktoberfest/Marzen",
+      "Class": "Lager",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.65,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Premium American Lager",
+      "Class": "Lager",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.65,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Schwarzbier (Black Beer)",
+      "Class": "Lager",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Standard American Lager",
+      "Class": "Lager",
+      "Co2Low": 2.5,
+      "Co2Mid": 2.65,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "Traditional Bock",
+      "Class": "Lager",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },
+    {
+      "Style": "Vienna Lager",
+      "Class": "Lager",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.5,
+      "Co2High": 2.6
+    }
+  ]
