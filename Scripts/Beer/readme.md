@@ -42,7 +42,11 @@ ForceCarbonation -Temp_f 68 -Co2 2.6
 #Using input syle  
 ForceCarbonation -Temp_c 20 -Style AAA  
 #Using pre defined style  
-ForceCarbonation -Temp_c 20 -IPA  
+ForceCarbonation -Temp_c 20 -IPA 
+#Using pre defined levels 16,14,12  
+ForceCarbonation -FastMid 16  
+#Using pre defined levels 48,34,30  
+ForceCarbonation -FastHigh 48  
   
   
 # LINK

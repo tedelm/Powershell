@@ -15,6 +15,10 @@ ForceCarbonation -Temp_f 68 -Co2 2.6
 ForceCarbonation -Temp_c 20 -Style AAA
 #Using pre defined style
 ForceCarbonation -Temp_c 20 -IPA
+#Using pre defined level
+ForceCarbonation -FastMid 16
+
+
 
 .NOTES
 Author
@@ -38,7 +42,10 @@ ForceCarbonation -Temp_f 68 -Co2 2.6
 ForceCarbonation -Temp_c 20 -Style AAA
 #Using pre defined style
 ForceCarbonation -Temp_c 20 -IPA
-
+#Using pre defined levels 16,14,12
+ForceCarbonation -FastMid 16
+#Using pre defined levels 48,34,30
+ForceCarbonation -FastHigh 48 
 
 .LINK
 
@@ -51,6 +58,8 @@ function ForceCarbonation {
         [decimal]$Temp_f,
         [decimal]$Co2,
         [String]$Style,
+        [int]$FastMid,
+        [int]$FastHigh,
         [Switch]$IPA,
         [Switch]$AAA,
         [Switch]$Lager,
@@ -81,21 +90,57 @@ if(!$Style -and !$Co2){
     if($Pilsner)        { $Co2 = 2.6 }
 }
 
+    if($FastMid){
+        #Hours
+        switch ($FastMid)
+        {
+            16{ $BAR = 2    }
+            14{ $BAR = 2.4  }
+            12{ $BAR = 2.75 }
+            default     { $OOB = "Available options (h): 16,14,12"; $BAR = 0 }
+        }
 
+        $PSI = $BAR * 14.503773773
+        Write-host "Celsius: $Temp_c"
+        Write-host "Fahrenheit: $Temp_f"
+        Write-host "Wanted Co2 level: Low/Mid"
+        Write-host "PSI: $([math]::Round($PSI,2))"
+        Write-host "BAR: $([math]::Round($BAR,2))"
+        Write-host "Duration: $FastMid hours"        
 
-$PSI = (-16.6999 - (0.0101059*$Temp_f)) + (0.00116512*($Temp_f*$Temp_f)) + ((0.173354*$Temp_f)*$Co2) + ((4.24267*$Co2) - (0.0684226*($Co2*$Co2)))
-$BAR = $PSI * 0.0689475729
+    }elseif($FastHigh){
+        #Hours
+        switch ($FastHigh)
+        {
+            48{ $BAR = 2    }
+            34{ $BAR = 2.4  }
+            30{ $BAR = 2.75 }
+            default     { $OOB = "Available options (h): 48,34,30"; $BAR = 0 }
+        }
 
-Write-host "Celsius: $Temp_c"
-Write-host "Fahrenheit: $Temp_f"
-Write-host "Wanted Co2 level: $Co2"
-Write-host "PSI: $([math]::Round($PSI,2))"
-Write-host "BAR: $([math]::Round($BAR,2))"
-Write-host "Duration: 7-10 Days"
+        $PSI = $BAR * 14.503773773
+        Write-host "Celsius: $Temp_c"
+        Write-host "Fahrenheit: $Temp_f"
+        Write-host "Wanted Co2 level: High"
+        Write-host "PSI: $([math]::Round($PSI,2))"
+        Write-host "BAR: $([math]::Round($BAR,2))"
+        Write-host "Duration: $FastHigh hours"
+    }else {
+
+        $PSI = (-16.6999 - (0.0101059*$Temp_f)) + (0.00116512*($Temp_f*$Temp_f)) + ((0.173354*$Temp_f)*$Co2) + ((4.24267*$Co2) - (0.0684226*($Co2*$Co2)))
+        $BAR = $PSI * 0.0689475729  
+
+        Write-host "Celsius: $Temp_c"
+        Write-host "Fahrenheit: $Temp_f"
+        Write-host "Wanted Co2 level: $Co2"
+        Write-host "PSI: $([math]::Round($PSI,2))"
+        Write-host "BAR: $([math]::Round($BAR,2))"
+        Write-host "Duration: 7-10 Days"
+
+    }
+
+    write-host $OOB -ForegroundColor red -BackgroundColor Yellow
+    $OOB = $null
 
 
 }
-
-
-
-
