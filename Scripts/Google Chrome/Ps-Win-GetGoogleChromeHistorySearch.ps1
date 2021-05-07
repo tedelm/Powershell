@@ -73,7 +73,7 @@ function GoogleHistoryDownloads($searchword){
 
         Write-host "[ - - - - - - - - File Found - - - - - - - - ]" -ForegroundColor yellow
         Write-host "Last Modified: $($r_dl.last_modified)"
-        Write-host "File: $($r_dl.target_path)"
+        Write-host "File: $($r_dl.target_path)" -ForegroundColor blue -backgroundcolor yellow
         Write-host "Url: $($r_dl.referrer)"
         Write-host "Url: $($r_dl.tab_url)"
         Start-Sleep -Milliseconds 200
