@@ -1,5 +1,19 @@
 [
     {
+      "Style": "Pilsner, (German Pilsner)",
+      "Class": "Lager",
+      "Co2Low": 2.4,
+      "Co2Mid": 2.6,
+      "Co2High": 2.8
+    },
+    {
+      "Style": "IPA, (American)",
+      "Class": "Ale",
+      "Co2Low": 2.2,
+      "Co2Mid": 2.45,
+      "Co2High": 2.7
+    },    
+    {
       "Style": "American Amber",
       "Class": "Ale",
       "Co2Low": 2.3,
