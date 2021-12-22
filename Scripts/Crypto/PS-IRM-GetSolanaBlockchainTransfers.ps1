@@ -1,8 +1,8 @@
-#Using AnyChart to render network/transaction graph
 
 function Get-SolanaBlockchainTransfers {
     param (
         [String]$TokenAccount,
+        [Switch]$ShowSplTokenOnly,
         [String]$File,
         [Switch]$OpenFile,
         [Switch]$ShowDetails,
@@ -26,10 +26,21 @@ function Get-SolanaBlockchainTransfers {
        $Response = Invoke-RestMethod -Uri $Url -Method Get
 
        if($($Response.tokenTransfers.source_owner) -ne $null){
-        $ids += [string]$($Response.tokenTransfers.source_owner)
-        $ids += [string]$($Response.tokenTransfers.destination_owner)
-        $Transactions += "{from: '"+$($Response.tokenTransfers.source_owner)+"', to:'"+$($Response.tokenTransfers.destination_owner)+"'},"
-        $TransactionsDetailed += "From:$($Response.tokenTransfers.source_owner);To:$($Response.tokenTransfers.destination_owner);TransactionId:$($item.txHash)"
+
+        #Solana SPL-Token (Underlying Solana Token)
+        if($ShowSplTokenOnly){
+            $ids += [string]$($Response.tokenTransfers.source)
+            $ids += [string]$($Response.tokenTransfers.destination)
+            $Transactions += "{from: '"+$($Response.tokenTransfers.source)+"', to:'"+$($Response.tokenTransfers.destination)+"'},"
+            $TransactionsDetailed += "From:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.source);To:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.destination);TransactionId:$($item.txHash)" 
+        }else{
+            #Solana Wallets
+            $ids += [string]$($Response.tokenTransfers.source_owner)
+            $ids += [string]$($Response.tokenTransfers.destination_owner)
+            $Transactions += "{from: '"+$($Response.tokenTransfers.source_owner)+"', to:'"+$($Response.tokenTransfers.destination_owner)+"'},"
+            $TransactionsDetailed += "From:$($Response.tokenTransfers.source_owner);To:$($Response.tokenTransfers.destination_owner);TransactionId:$($item.txHash)"
+        }     
+
       }
        
     }
@@ -143,11 +154,12 @@ ac_add_style('.anychart-embed-tYmxv98v{width:600px;height:450px;}');
         $TransactionsDetailed
     }
     if($OpenFile){
+        Write-host "Opening browser..."
         explorer.exe "$($file)"
     }
 
 }
 
-#Lets look at the Kevin Token 9SLCSSkEYL9YbKtAvw39xNzMEV4a7oLisGXhSJt73UCu ... its not that big...
-Get-SolanaBlockchainTransfers -TokenAccount 9SLCSSkEYL9YbKtAvw39xNzMEV4a7oLisGXhSJt73UCu -file TokenNetworkGraph.html -OpenFile -ShowDetails -TransactionsOutFile Transactions.csv
+Get-SolanaBlockchainTransfers -TokenAccount <token> -file TokenNetworkGraph.html -OpenFile -ShowDetails -TransactionsOutFile Transactions.csv -ShowSplTokenOnly
+
 
