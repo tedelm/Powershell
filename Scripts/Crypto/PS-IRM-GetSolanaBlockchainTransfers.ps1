@@ -33,19 +33,55 @@ function Get-SolanaBlockchainTransfers {
             $ids += [string]$($Response.tokenTransfers.destination)
             $Transactions += "{from: '"+$($Response.tokenTransfers.source)+"', to:'"+$($Response.tokenTransfers.destination)+"'},"
             $TransactionsDetailed += "From:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.source);To:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.destination);TransactionId:$($item.txHash)" 
+
+
+            $Url2 = 'https://public-api.solscan.io/account/transactions?account='+$($Response.tokenTransfers.destination)
+            $Response2 = Invoke-RestMethod -Uri $Url2 -Method Get
+        
+            foreach ($item2 in $Response2) {
+               
+               $Url3 = 'https://public-api.solscan.io/transaction/'+$($item2.txHash)
+               #$Url
+               $Response3 = Invoke-RestMethod -Uri $Url3 -Method Get
+
+                $ids += [string]$($Response.tokenTransfers.source)
+                $ids += [string]$($Response.tokenTransfers.destination)
+                $Transactions += "{from: '"+$($Response.tokenTransfers.source)+"', to:'"+$($Response.tokenTransfers.destination)+"'},"
+                $TransactionsDetailed += "From:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.source);To:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.destination);TransactionId:$($item.txHash)" 
+            }
+
         }else{
             #Solana Wallets
             $ids += [string]$($Response.tokenTransfers.source_owner)
             $ids += [string]$($Response.tokenTransfers.destination_owner)
             $Transactions += "{from: '"+$($Response.tokenTransfers.source_owner)+"', to:'"+$($Response.tokenTransfers.destination_owner)+"'},"
             $TransactionsDetailed += "From:$($Response.tokenTransfers.source_owner);To:$($Response.tokenTransfers.destination_owner);TransactionId:$($item.txHash)"
+
+            $Url2 = 'https://public-api.solscan.io/account/transactions?account='+$($Response.tokenTransfers.destination_owner)
+            $Response2 = Invoke-RestMethod -Uri $Url2 -Method Get
+        
+            foreach ($item2 in $Response2) {
+               
+               $Url3 = 'https://public-api.solscan.io/transaction/'+$($item2.txHash)
+               #$Url
+               $Response3 = Invoke-RestMethod -Uri $Url3 -Method Get
+
+                $ids += [string]$($Response.tokenTransfers.source_owner)
+                $ids += [string]$($Response.tokenTransfers.destination_owner)
+                $Transactions += "{from: '"+$($Response.tokenTransfers.source_owner)+"', to:'"+$($Response.tokenTransfers.destination_owner)+"'},"
+                $TransactionsDetailed += "From:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.source);To:$($Response.tokenTransfers.destination_owner):$($Response.tokenTransfers.destination);TransactionId:$($item.txHash)" 
+            }            
         }     
 
       }
        
     }
 
+
+    $TransactionsDetailed = $TransactionsDetailed | sort -Unique
+
     $ids0 = $ids | sort -Unique
+    $nodesSorted = $ids0
     $nodesArray = @()
 
     foreach ($id in $ids0) {
@@ -150,16 +186,38 @@ ac_add_style('.anychart-embed-tYmxv98v{width:600px;height:450px;}');
     if($TransactionsOutFile){
         $TransactionsDetailed | out-file -FilePath "$($TransactionsOutFile)" -Encoding utf8 -force
     }
+
+    Write-Host "############ Wallets:"
+    
+    foreach ($nodeSorted in $nodesSorted) {
+       Write-Host $nodeSorted
+    }
+
+    Write-Host "############"
+
     if($ShowDetails){
-        $TransactionsDetailed
+        Write-Host "############ Transactions:"
+
+        foreach ($TransactionDetailed in $TransactionsDetailed) {
+            Write-Host $TransactionDetailed
+         }        
+
+        Write-Host "############"
     }
     if($OpenFile){
         Write-host "Opening browser..."
         explorer.exe "$($file)"
     }
 
+
+    Write-host "Found Wallets: $($nodesSorted.count)  " -ForegroundColor Blue -BackgroundColor yellow
+    Write-host "Found Transactions: $($TransactionsDetailed.count)  " -ForegroundColor Blue -BackgroundColor yellow
+
+
+    
 }
 
-Get-SolanaBlockchainTransfers -TokenAccount <token> -file TokenNetworkGraph.html -OpenFile -ShowDetails -TransactionsOutFile Transactions.csv -ShowSplTokenOnly
+#Get-SolanaBlockchainTransfers -TokenAccount <token> -file TokenNetworkGraph.html -OpenFile -ShowDetails -TransactionsOutFile Transactions.csv -ShowSplTokenOnly
+Get-SolanaBlockchainTransfers -TokenAccount <wallet/token> -file TokenNetworkGraph.html -OpenFile -ShowDetails -TransactionsOutFile Transactions.csv -ShowSplTokenOnly
 
 
