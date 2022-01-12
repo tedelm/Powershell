@@ -8,7 +8,8 @@ function Get-DuplicateFiles {
     $result =@()
     $fileToDelete =@()
 
-    $files = Get-ChildItem -Path $FilePath -Recurse | select Fullname,@{Label="Hash";Expression={( (Get-FileHash -Path "$($_.fullname)" -Algorithm MD5).hash ) }}
+    $files = Get-ChildItem -Path $FilePath -Recurse * | select Fullname,@{Label="Hash";Expression={( (Get-FileHash -Path "$($_.fullname)" -Algorithm MD5).hash ) }}
+    Write-Host "Found a total of files: $($files.count)"
     $duplicates_hashes = ($files | group hash -NoElement | where -Property count -gt 1).name
     
 
@@ -17,6 +18,9 @@ function Get-DuplicateFiles {
         $result += $subRes
         $fileToDelete += $subRes | select -skip 1
     }
+
+    Write-host "Duplicate files:"
+    $fileToDelete
 
     if(!$fileToDelete){
         $files
@@ -39,6 +43,7 @@ function Get-DuplicateFiles {
 
 }
 
+#Get-DuplicateFiles -Filepath C:\PowershellTest
 #Get-DuplicateFiles -Filepath C:\PowershellTest -DeleteDuplicate
 
 
