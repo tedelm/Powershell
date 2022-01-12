@@ -39,6 +39,6 @@ function Get-DuplicateFiles {
 
 }
 
-Get-DuplicateFiles -Filepath C:\PowershellTest -DeleteDuplicate
+#Get-DuplicateFiles -Filepath C:\PowershellTest -DeleteDuplicate
 
 
