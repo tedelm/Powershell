@@ -19,13 +19,15 @@ function Get-DuplicateFiles {
         $fileToDelete += $subRes | select -skip 1
     }
 
-    Write-host "Duplicate files:"
-    $fileToDelete
-
     if(!$fileToDelete){
         $files
         Write-host "No duplicates found" -ForegroundColor Blue -BackgroundColor Yellow
+
     }else{
+
+        Write-host "Files to delete: $($fileToDelete.count)" -ForegroundColor Blue -BackgroundColor Yellow
+        $fileToDelete
+
         if($DeleteDuplicate){
 
             $readHost = Read-Host "Do you want to delete duplicate files? [y/n]"
@@ -37,13 +39,11 @@ function Get-DuplicateFiles {
                     
                 }
             }
-    
         }
     }
-
 }
 
-#Get-DuplicateFiles -Filepath C:\PowershellTest
+Get-DuplicateFiles -Filepath C:\Users\teel\OneDrive - Iver AB\DOKUMENT\PowershellTest
 #Get-DuplicateFiles -Filepath C:\PowershellTest -DeleteDuplicate
 
 
